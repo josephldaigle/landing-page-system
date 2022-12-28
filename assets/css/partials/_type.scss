@@ -1,0 +1,29 @@
+.grow-font-1 {
+  font-size: 1.25rem;
+}
+.grow-font-2 {
+  font-size: 1.5rem;
+}
+.grow-font-3 {
+  font-size: 1.75rem;
+}
+
+.shrink-font-1 {
+  font-size: 90%;
+}
+
+.shrink-font-2 {
+  font-size: 75%;
+}
+
+.shrink-font-3 {
+  font-size: 60%;
+}
+
+.blockquote {
+  font-size: 1rem;
+}
+
+.blockquote-footer::before {
+  content: initial;
+}

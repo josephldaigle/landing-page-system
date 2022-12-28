@@ -1,0 +1,32 @@
+{# twig template #}
+{# Default layout for landing pages #}
+
+{#PAGE TITLE#}
+<div class="col-12">
+    <h1 class="text-left my-5">
+
+        {% block layout_page_title %}{% endblock %}
+
+    </h1>
+</div>
+
+ {#ROW-BREAK#}
+<div class="w-100"></div>
+
+ {#MAIN CONTAINER#}
+<div class="col-lg-8">
+    <div class="row">
+
+        {% block layout_main_content %}{% endblock %}
+
+    </div>
+</div>
+
+ {#RIGHT SIDE BAR#}
+<div class="col-lg-4 mt-3">
+    <div class="row">
+
+        {% block layout_sbr %}{% endblock %}
+
+    </div>
+</div>

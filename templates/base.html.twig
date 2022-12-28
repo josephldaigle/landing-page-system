@@ -1,0 +1,95 @@
+{# twig template #}
+
+<!doctype html>
+<html class="no-js" lang="US-en">
+
+<head>
+    <meta charset="utf-8">
+
+    <title>
+        {% block page_title %}{{ 'Clean Gutter Co' }}{% endblock %}
+    </title>
+
+    <meta name="description" content="{% block page_meta_description %}{{ 'Local, veteran-owned gutter cleaning service. No ladders & No mess. Licensed & Insured. Byron, Warner Robins & Fort Valley, Macon & Perry.' }}{% endblock %}">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+
+    {% if (app.environment == 'prod') %}
+
+        <!-- Google Tag Manager -->
+        <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+                    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+                j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+                'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+            })(window,document,'script','dataLayer','GTM-TLBJX33');</script>
+        <!-- End Google Tag Manager -->
+    {% endif %}
+
+    {# TODO: Implement web manifest #}
+    <!-- Place favicon.ico in the root directory -->
+    {#<link rel="manifest" href="site.webmanifest">#}
+    {#<link rel="apple-touch-icon" href="icon.png">#}
+    <link rel="icon" href="{{ asset('favicon-home.ico') }}">
+    <script src="https://www.youtube.com/iframe_api"></script>
+
+    {#<meta name="theme-color" content="#fafafa">#}
+
+    {% block stylesheets %}
+        {{ encore_entry_link_tags('app') }}
+    {% endblock %}
+
+</head>
+
+<body>
+
+    <div id="app-env" data-app-env="{{ app.environment }}"></div>
+
+    <!-- Google Tag Manager (noscript) -->
+    <noscript>
+        <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TLBJX33"
+                height="0" width="0" style="display:none;visibility:hidden"></iframe>
+    </noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+<!--[IE Warning]>
+<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+<![endif]-->
+
+{# BODY BLOCK #}
+<div id="app">
+
+    {% set template_data = app.request.get('template_data') %}
+
+    <div class="container-fluid col-md-10">
+        <div class="row py-4">
+
+            {# Site Header #}
+            {% block site_header %}
+                {% include 'components/header.html.twig' %}
+            {% endblock %}
+
+            {# Site Wide Navigation Bar #}
+            {% block site_navbar %}
+                {% include 'components/nav-bar.html.twig' %}
+            {% endblock %}
+
+            {# Override to impelement page body #}
+            {% block page_content %}{% endblock %}
+
+            {% block site_footer %}
+                <div class="w-100 mb-3"></div>
+                {% include 'components/footer.html.twig' %}
+            {% endblock %}
+
+        </div>
+    </div>
+</div>
+
+{% block javascripts %}
+    {{ encore_entry_script_tags('app') }}
+{% endblock %}
+
+</body>
+
+</html>
